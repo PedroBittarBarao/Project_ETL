@@ -1,2 +1,9 @@
 (library
- (name Project_ETL))
+ (name csv_parser)
+ (modules csv_parser)
+ (libraries csv))
+
+(library
+ (name csv_processor)
+ (modules csv_processor)
+ (libraries csv csv_parser))

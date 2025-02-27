@@ -19,7 +19,9 @@
  (name Project_ETL)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends ocaml)
+ (depends ocaml
+  csv)
+
  (tags
   ("add topics" "to describe" your project)))
 

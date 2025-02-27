@@ -1,0 +1,12 @@
+20/02
+- dune init project
+- import csv library
+
+25/02
+- try to adjust example.ml into main.ml (https://github.com/Chris00/ocaml-csv/blob/master/examples/example.ml)
+- study (https://ocaml.org/cookbook/read-csv/csv)
+- install alcotest
+- separate pure and impure functions
+
+27/02
+- add functions for order csv
