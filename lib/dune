@@ -1,9 +1,25 @@
 (library
- (name csv_parser)
- (modules csv_parser)
+ (name csv_reader)
+ (modules csv_reader)
  (libraries csv))
 
 (library
- (name csv_processor)
- (modules csv_processor)
- (libraries csv csv_parser))
+ (name csv_helper)
+ (modules csv_helper)
+ (libraries csv))
+
+(library
+ (name filter)
+ (modules filter)
+ (libraries))
+
+(library
+ (name processor)
+ (modules processor)
+ (libraries))
+
+(library
+ (name csv_writer)
+ (modules csv_writer)
+ (libraries csv))
+

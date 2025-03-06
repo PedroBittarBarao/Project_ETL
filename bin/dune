@@ -1,4 +1,4 @@
 (executable
  (name main)
- (public_name main)
- (libraries csv_processor))
+ (modules main)
+ (libraries csv_reader csv_helper filter processor csv_writer))
