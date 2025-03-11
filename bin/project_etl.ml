@@ -1,8 +1,3 @@
-open Csv_reader
-open Csv_helper
-open Filter
-open Processor
-open Csv_writer
 
 let () =
   (* Verifica se os argumentos da linha de comando foram passados corretamente *)
@@ -21,20 +16,24 @@ let () =
   let orders_data = Csv_reader.read_csv orders_csv in
   let items_data = Csv_reader.read_csv items_csv in
 
-  (* Converte os dados para records *)
+  (* Converte os dados para registros *)
   let orders = 
     List.filter_map (fun res -> match res with
       | Ok order -> Some order
       | Error _ -> None
     ) (List.map Csv_helper.parse_row_order orders_data) in
   
-  let items = List.map Csv_helper.parse_row_item items_data in
+  let items = 
+    List.filter_map (fun res -> match res with
+      | Ok item -> Some item
+      | Error _ -> None
+    ) (List.map Csv_helper.parse_row_item items_data) in
 
   (* Filtra os pedidos conforme status e origem *)
-  let valid_order_ids = Filter.filter_orders orders status_filter origin_filter in
+  let valid_orders = Filter.filter_orders orders status_filter origin_filter in
 
   (* Processa os itens e calcula os totais *)
-  let processed_output = Processor.process_orders valid_order_ids items in
+  let processed_output = Processor.process_orders valid_orders items in
 
   (* Escreve a saída no CSV *)
   Csv_writer.write_csv output_csv processed_output;

@@ -26,6 +26,10 @@ type order = {
 *)
 val parse_row_item : string list -> (item, string) result
 
+val string_to_items : string list -> item list
+
+val string_to_orders : string list -> order list
+
 
 (** Converts a CSV row into an [order] record.
     Assumes that the row has the correct format.

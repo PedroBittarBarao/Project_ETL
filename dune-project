@@ -21,6 +21,7 @@
  (description "A longer description")
  (depends ocaml
   csv)
+  (allow_empty)
 
  (tags
   ("add topics" "to describe" your project)))

@@ -11,15 +11,15 @@
 (library
  (name filter)
  (modules filter)
- (libraries))
+ (libraries csv_helper))
 
 (library
  (name processor)
  (modules processor)
- (libraries))
+ (libraries csv_helper))
 
 (library
  (name csv_writer)
  (modules csv_writer)
- (libraries csv))
+ (libraries csv processor))
 

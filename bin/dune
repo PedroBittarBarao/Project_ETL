@@ -1,4 +1,5 @@
 (executable
- (name main)
- (modules main)
+ (name project_etl)
+ (modules project_etl)
+ (public_name project_etl)
  (libraries csv_reader csv_helper filter processor csv_writer))
