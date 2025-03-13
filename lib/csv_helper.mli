@@ -1,40 +1,35 @@
-(** Module for parsing CSV rows into structured records. *)
+(** Types representing items and orders in the system. *)
 
-(** Type representing an item in an order. *)
+(** Represents an item in an order. *)
 type item = {
-  order_id  : int;
-  product_id: int;
-  quantity  : int;
-  price     : float;
-  tax       : float;
+  order_id  : int;    (** The ID of the order this item belongs to. *)
+  product_id: int;    (** The ID of the product. *)
+  quantity  : int;    (** The quantity of the product in the order. *)
+  price     : float;  (** The price of a single unit of the product. *)
+  tax       : float;  (** The tax applied to this product. *)
 }
 
-(** Type representing an order. *)
+(** Represents an order. *)
 type order = {
-  id         :int;
-  client_id  :int;
-  order_date :string;
-  status     :string;
-  origin     :char;
+  id         : int;     (** The unique ID of the order. *)
+  client_id  : int;     (** The ID of the client who placed the order. *)
+  order_date : string;  (** The date when the order was placed. *)
+  status     : string;  (** The current status of the order. *)
+  origin     : char;    (** The origin of the order (e.g., online, in-store). *)
 }
 
-(** Converts a CSV row into an [item] record.
-    Assumes that the row has the correct format.
+(** Parses a CSV file (as a list of string lists) into a list of items.
 
-    @param row A list of strings representing a row in the item CSV.
-    @return An [item] record.
+    @param lines The CSV content, where each row is a list of strings.
+    @return A list of [item] records parsed from the input.
+    Invalid rows (e.g., with missing or malformed values) are ignored.
 *)
-val parse_row_item : string list -> (item, string) result
+val string_to_items : string list list -> item list
 
-val string_to_items : string list -> item list
+(** Parses a CSV file (as a list of string lists) into a list of orders.
 
-val string_to_orders : string list -> order list
-
-
-(** Converts a CSV row into an [order] record.
-    Assumes that the row has the correct format.
-
-    @param row A list of strings representing a row in the order CSV.
-    @return An [order] record.
+    @param lines The CSV content, where each row is a list of strings.
+    @return A list of [order] records parsed from the input.
+    Invalid rows (e.g., with missing or malformed values) are ignored.
 *)
-val parse_row_order : string list -> (order, string) result
+val string_to_orders : string list list -> order list

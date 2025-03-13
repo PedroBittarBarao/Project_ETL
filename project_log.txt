@@ -10,3 +10,12 @@
 
 27/02
 - add functions for order csv
+
+11/03
+- adjust helper functions to change return types
+- fix processor to build
+
+13/03
+- fix execution (wrong case in arg)
+- add docstrings
+- adjust main to new helper functions
