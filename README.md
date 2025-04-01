@@ -37,6 +37,7 @@ This OCaml project processes and filters order data from CSV files to generate a
 * <em>dune build</em>
 * Usage: <em>dune exec project_etl  <orders_csv> <items_csv> <output_csv> <status> <origin> </em>
 * Executable can be found in <em>_build/install/default/bin/</em>
+* Example options can be found and run with *run_etl.sh*
 
 ### Options:
 * status (Case sensitive): Pending|Complete|Canceled
