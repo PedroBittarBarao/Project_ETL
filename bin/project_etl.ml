@@ -2,7 +2,7 @@
 let () =
   (* Verifica se os argumentos da linha de comando foram passados corretamente *)
   if Array.length Sys.argv <> 6 then (
-    Printf.printf "Uso: %s <orders_csv> <items_csv> <output_csv> <status> <origin>\n" Sys.argv.(0);
+    Printf.printf "Usage: %s <orders_csv> <items_csv> <output_csv> <status> <origin>\n" Sys.argv.(0);
     exit 1
   );
 
