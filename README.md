@@ -42,3 +42,8 @@ This OCaml project processes and filters order data from CSV files to generate a
 ### Options:
 * status (Case sensitive): Pending|Complete|Canceled
 * origin (Case sensitive): P|O
+
+### [Project Report](Project_Report.md)
+
+### Disclaimer
+Generative AI tools were used to aid in the creation of code and documentation of this project
