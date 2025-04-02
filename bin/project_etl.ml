@@ -1,6 +1,5 @@
-
 let () =
-  (* Verifica se os argumentos da linha de comando foram passados corretamente *)
+  (* Check if the command-line arguments were passed correctly *)
   if Array.length Sys.argv <> 6 then (
     Printf.printf "Usage: %s <orders_csv> <items_csv> <output_csv> <status> <origin>\n" Sys.argv.(0);
     exit 1
@@ -10,24 +9,24 @@ let () =
   let items_csv = Sys.argv.(2) in
   let output_csv = Sys.argv.(3) in
   let status_filter = Sys.argv.(4) in
-  let origin_filter = Sys.argv.(5).[0] in  (* Pega o primeiro caractere para o origin *)
+  let origin_filter = Sys.argv.(5).[0] in  (* Get the first character for origin *)
 
-  (* Lê os arquivos CSV *)
+  (* Read the CSV files *)
   let orders_data = Csv_reader.read_csv orders_csv in
   let items_data = Csv_reader.read_csv items_csv in
 
-  (* Converte os dados para registros *)
+  (* Convert data to records *)
   let orders = Csv_helper.string_to_orders orders_data in
   
   let items = Csv_helper.string_to_items items_data in
   
-  (* Filtra os pedidos conforme status e origem *)
+  (* Filter orders by status and origin *)
   let valid_orders = Filter.filter_orders orders status_filter origin_filter in
   
-  (* Processa os itens e calcula os totais *)
+  (* Process items and calculate totals *)
   let processed_output = Processor.process_orders valid_orders items in
 
-  (* Escreve a saída no CSV *)
+  (* Write output to CSV *)
   Csv_writer.write_csv output_csv processed_output;
 
-  Printf.printf "Processamento concluído! Arquivo salvo em: %s\n" output_csv
+  Printf.printf "Processing completed! File saved at: %s\n" output_csv
