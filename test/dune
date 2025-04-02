@@ -1,1 +1,13 @@
+(test
+ (name test_filter_orders)
+ (libraries alcotest filter csv_helper))
+
+(test
+(name test_process_orders)
+(libraries alcotest csv_helper processor ))
+
+(test
+(name test_csv_helper)
+(libraries alcotest csv_helper))
+
 

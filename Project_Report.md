@@ -10,4 +10,4 @@ A [processing function](/lib/processor.ml) was then implemented to perform the n
 
 Finally, a [main function](/bin/project_etl.ml) was constructed to integrate all components, ensuring the complete workflow from reading input to generating output.
 
-After the program’s completion, [tests](/test) were designed to validate the behavior of pure functions.
+After the program’s completion, [tests](/test) were designed to validate the behavior of pure functions, using [alcotest](https://opam.ocaml.org/packages/alcotest/).
